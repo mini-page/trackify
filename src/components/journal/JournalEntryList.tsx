@@ -50,6 +50,19 @@ const moodColors: Record<string, string> = {
 const JournalEntryList: React.FC<JournalEntryListProps> = ({ entries, onViewCalendar }) => {
   const [expandedEntries, setExpandedEntries] = useState<Record<string, boolean>>({});
 
+  const getMoodBorderColor = (mood?: string): string => {
+    if (!mood) return 'var(--border)';
+
+    const moodClass = moodColors[mood];
+    if (!moodClass) return 'var(--border)';
+
+    const bgClass = moodClass.split(' ').find(cls => cls.startsWith('bg-'));
+    if (!bgClass) return 'var(--border)';
+
+    const colorToken = bgClass.replace('bg-', '').split('/')[0];
+    return `rgb(var(--${colorToken}-rgb) / 0.7)`;
+  };
+
   const toggleExpand = (entryId: string) => {
     setExpandedEntries(prev => ({
       ...prev,
@@ -107,11 +120,7 @@ const JournalEntryList: React.FC<JournalEntryListProps> = ({ entries, onViewCale
                   key={entry.id} 
                   className="overflow-hidden hover:shadow-md transition-shadow border-l-4"
                   style={{ 
-                    borderLeftColor: entry.mood && 
-                      moodColors[entry.mood]?.includes('bg-') ? 
-                      moodColors[entry.mood].split(' ')[0].replace('bg-', 'rgb(var(--'))
-                      .concat('-rgb) / 0.7)') : 
-                      'var(--border)'
+                    borderLeftColor: getMoodBorderColor(entry.mood)
                   }}
                 >
                   <CardHeader className="py-3 px-4 bg-muted/20 border-b flex flex-row items-center justify-between">
