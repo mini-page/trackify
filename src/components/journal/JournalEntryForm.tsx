@@ -64,7 +64,7 @@ const journalTemplates = [
   { id: 'gratitude', title: 'Gratitude Journal', content: 'Today, I am grateful for:\n\n1.\n2.\n3.\n\nOne small thing that made me smile today was:' },
   { id: 'reflection', title: 'Daily Reflection', content: 'Three things that went well today:\n\n1.\n2.\n3.\n\nOne thing I could have done better:\n\nWhat I learned today:' },
   { id: 'goals', title: 'Goals & Intentions', content: 'My main goal for today is:\n\nThree small steps I can take toward my goals:\n\n1.\n2.\n3.\n\nHow I want to feel at the end of the day:' },
-  { id: 'challenge', title: 'Working Through a Challenge', content: 'The challenge I\'m facing is:\n\nPossible solutions:\n\n1.\n2.\n3.\n\nWhat I've tried so far:\n\nMy next step will be:' },
+  { id: 'challenge', title: 'Working Through a Challenge', content: 'The challenge I\'m facing is:\n\nPossible solutions:\n\n1.\n2.\n3.\n\nWhat I\'ve tried so far:\n\nMy next step will be:' },
   { id: 'selfcare', title: 'Self-Care Check-in', content: 'My energy level today (1-10):\n\nPhysical self-care I practiced today:\n\nMental/emotional self-care I practiced today:\n\nSomething I did just for me:' },
 ];
 
